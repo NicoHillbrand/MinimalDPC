@@ -1,2 +1,0 @@
-com.nico.minidpc:xml/device_admin = 0x7f020000
-com.nico.minidpc:string/app_name = 0x7f010000
