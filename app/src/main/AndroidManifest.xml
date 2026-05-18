@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:label="MinimalDPC"
+        android:allowBackup="false">
+
+        <!-- MainActivity has NO LAUNCHER intent filter on purpose:
+             the app does not appear in the app drawer.
+             To open it: adb shell am start -n com.nico.minidpc/.MainActivity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <receiver
+            android:name=".AdminReceiver"
+            android:label="MinimalDPC"
+            android:permission="android.permission.BIND_DEVICE_ADMIN"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
